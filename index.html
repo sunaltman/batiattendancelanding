@@ -130,14 +130,27 @@ nav.scrolled{background:rgba(250,249,245,.88);box-shadow:var(--shadow-lift)}
 .nav-burger.open span:nth-child(2){opacity:0}
 .nav-burger.open span:nth-child(3){transform:rotate(-45deg) translateY(-7.3px)}
 @media (max-width:760px){
-  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(250,249,245,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:0 0 24px 24px;padding:0 12px;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;z-index:50}
-  .nav-links.active{max-height:400px;padding:16px 12px;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lift)}
-  .nav-links a{padding:12px 16px;border-radius:8px;font-size:15px}
+  /* Detached floating card — completely separate from the pill, gaps between */
+  .nav-links{
+    position:fixed;top:76px;left:14px;right:14px;
+    flex-direction:column;
+    background:rgba(250,249,245,.97);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+    border:1px solid rgba(21,32,25,.08);border-radius:24px;
+    padding:0 8px;gap:0;
+    max-height:0;overflow:hidden;
+    box-shadow:0 8px 32px rgba(21,32,25,.12);
+    opacity:0;transform:translateY(-6px);
+    transition:max-height .3s cubic-bezier(.22,.61,.36,1),padding .3s,opacity .25s,transform .3s cubic-bezier(.22,.61,.36,1);
+    z-index:99;
+  }
+  .nav-links.active{max-height:400px;padding:8px;opacity:1;transform:translateY(0)}
+  .nav-links>li>a{display:block;padding:13px 14px;border-radius:14px;font-size:16px;color:var(--ink);font-weight:500}
+  .nav-links>li>a:hover{background:var(--sage-tint);color:var(--sage-deep)}
   .nav-burger{display:flex}
   .nav-cta{display:none}
   .logo-name{font-size:16px}
-  .nav-mobile-cta{display:flex!important;margin-top:8px;border-top:1px solid var(--line);padding-top:12px}
-  .nav-mobile-cta a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--sage-deep);color:#fff;font-weight:600;padding:13px 16px;border-radius:12px;text-decoration:none;font-size:15px;transition:background .2s}
+  .nav-mobile-cta{display:flex!important;margin-top:4px;padding:4px 0 4px}
+  .nav-mobile-cta a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--sage-deep);color:#fff;font-weight:600;padding:14px 16px;border-radius:14px;text-decoration:none;font-size:15px;transition:background .2s;width:100%}
   .nav-mobile-cta a:hover{background:var(--sage)}
 }
 
